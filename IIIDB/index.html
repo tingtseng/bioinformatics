@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<link rel="icon" href="http://syslab.nchu.edu.tw/IIIDB/images/syslab.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="http://syslab.nchu.edu.tw/IIIDB/images/syslab.ico" type="image/x-icon" />
+	<link rel="bookmark" href="http://syslab.nchu.edu.tw/IIIDB/images/syslab.ico" type="image/x-icon" />
+    <title>IIIDB - welcome</title>
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+<link rel="stylesheet" type="text/css" href="css/simple.css" media="screen, tv, projection" title="Default" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script>
+		!window.jQuery && document.write('<script src="/jquery/jquery-1.4.3.min.js"><\/script>');
+	</script>
+	<script type="text/javascript" src="./jquery/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
+	<script type="text/javascript" src="./jquery/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<link rel="stylesheet" type="text/css" href="./jquery/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("a[rel=example_group]").fancybox({
+				'transitionIn'		: 'none',
+				'transitionOut'		: 'none',
+				'titlePosition' 	: 'over',
+				'titleFormat'		: function(title, currentArray, currentIndex, currentOpts) {
+					return '<span id="fancybox-title-over">Image ' + (currentIndex + 1) + ' / ' + currentArray.length + (title.length ? ' &nbsp; ' + title : '') + '</span>';
+				}
+			});		
+		});
+	</script>
+    
+<script type="text/javascript" src="jquery/lib/jquery.js"></script>
+<script type='text/javascript' src='jquery/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='jquery/localdata.js'></script>
+<link rel="stylesheet" type="text/css" href="jquery/jquery.autocomplete.css" />
+  
+<script type="text/javascript">
+$().ready(function() {
+
+$("#suggest1").focus().autocomplete(interact3);
+
+$("#suggest2").focus().autocomplete(interact2);
+	
+$("#suggest3").focus().autocomplete(modoule);
+});
+
+
+</script>
+
+<style type="text/css">
+body {
+	background-image: url(./images/bg1.jpg);
+	background-repeat: no-repeat;
+}
+</style>
+</head>
+<body id="your-site-id">
+
+<div id="page">
+<A NAME="index"></A>
+
+  <div id="header">
+    <h1><a href="index.html#index"> IIIDB</a></h1>
+  <strong>A database for Isoform-Isoform Interactions and isoform network modules. </strong></div>     
+  <div id="wrapper"> 
+ <div id="right">  
+      <div id="content">
+        
+            <div id="path">
+                You are here: <a href="index.html">Home</a> 
+                &raquo; <a href="index.html">Introduction</a>
+            </div>
+    
+            <div id="main">
+
+                <h1>About the IIIDB</h1>
+                <br />
+                
+                <p>Nowadays, many protein-protein interaction (PPI) databases are available, but the isoform level PPI prediction database has not been seen yet. Thus, we developed the first isoform-isoform interaction database, IIIDB (<a href="http://syslab.nchu.edu.tw/IIIDB" target="_blank">http://syslab.nchu.edu.tw/IIIDB</a>). The interactions in IIIDB were calculated by a logistic regression approach that integrates information from RNA-seq datasets, orthology, domain-domain interaction, and GO annotation.</p>
+            </div>
+            <br />
+            <div id="main">
+
+                <h1> <strong><span lang="EN-US" xml:lang="EN-US">Interaction Search (High-confidence prediction, score &gt; 3)</span></strong></h1> 
+                
+             
+            <br />
+                
+                <FORM autocomplete="off" METHOD="post" ACTION="Interact.jsp">
+                <p>
+                <label><strong>Enter Gene Symbol or Gene ID：</strong></label>
+                <br/>
+                <INPUT TYPE="text" id="suggest1" NAME="TranGeneID" SIZE="30" onfocus=""> 
+                e.g. ADCY5 or 111
+				<br/>
+                </TEXTAREA><br/>
+                <input type="hidden" name="action" value="high">
+                <INPUT TYPE="submit" VALUE="submit">
+                <INPUT TYPE="reset" VALUE="reset">
+			  	</p>
+                </FORM>
+      
+
+          </div>
+          <br />
+          <div id="main">
+
+                <h1> <strong><span lang="EN-US" xml:lang="EN-US">Interaction Search (Low-confidence prediction, score &gt; 2)</span></strong></h1> 
+                
+             
+            <br />
+                
+                <FORM autocomplete="off" METHOD="post" ACTION="Interact.jsp">
+                <p>
+                <label><strong>Enter Gene Symbol or Gene ID：</strong></label>
+                <br/>
+                <INPUT TYPE="text" id="suggest2" NAME="TranGeneID" SIZE="30">
+e.g. ADCY5 or 111
+				<br/>
+                </TEXTAREA><br/>
+                <input type="hidden" name="action" value="low">
+                <INPUT TYPE="submit" VALUE="submit">
+                <INPUT TYPE="reset" VALUE="reset">
+			  	</p>
+                </FORM>
+      
+
+          </div>
+           <br />
+           <div id="main">
+
+                <h1>Module Search</h1> 
+                
+             
+            <br />
+                
+                <FORM autocomplete="off" METHOD="post" ACTION="Enrich.jsp">
+                <p>
+                <label><strong>Enter Gene Symbol or Gene ID：</strong><br/></label>
+                <INPUT TYPE="text" id="suggest3" NAME="TranGeneID" SIZE="30">
+e.g. MSH2 or 4436<br/>
+                </TEXTAREA><br/>
+                <INPUT TYPE="submit" VALUE="submit">
+                <INPUT TYPE="reset" VALUE="reset">
+			  	</p>
+                </FORM>
+
+          </div>
+<br />
+<div id="main">
+      <A NAME="about"><h1>About Us</h1></A>
+               <br />
+               <p> <strong>Systems Biology Lab, National Chung Hsing 
+                 University</strong> <a href="http://syslab.nchu.edu.tw/" target="_blank">http://syslab.nchu.edu.tw/</a><br /></p>
+          <p><strong>Zhou Lab, University of Southern California</strong> <a href="http://zhoulab.usc.edu/" target="_blank">http://zhoulab.usc.edu/</a><br />
+</p>
+</div>
+          			<br />
+        <div id="main">
+      <A NAME="tutorial"><h1>Tutorial</h1></A>
+               <br />
+               <p>In IIIDB, the users can easily access high-confidence and low-confidence predictions of human IIIs, and then see the full evidence values for each predicted III (Figure 1). The IIIDB allows users to easily search IIIs and isoform modules, and then provides the evidence that led to each III prediction. Interestingly, the different isoforms within the same gene may be involved with different isoform modules that may open a new door to study differential functionality of isoforms of the gene. The IIIDB also provides the comprehensive enrichment analysis results (GO, pathway, and complex) for isoform modules, which may help biologists to study the biological insight of network modules in isoform level.               </p>
+               <table width="758" border="0">
+                 <tr>
+                   <td width="66">&nbsp;</td>
+                   <td width="672"><img src="images/t2.jpg" alt="" width="672" height="551" /></td>
+                   <td width="6">&nbsp;</td>
+                 </tr>
+                 <tr>
+                   <td><p>&nbsp;</p>
+                     <p>&nbsp;</p></td>
+                   <td><div align="justify"><strong>Figure 1. The  screenshots of the isoform interaction and module search function in IIIDB.</strong> (<strong>A</strong>) Users can input a gene  symbol or gene ID to search predicted IIIs and isoform modules. In the interaction  search section (the red dashed line box), users can search high-confidence  (score &gt; 3) and low-confidence (score &gt; 2) predictions. (<strong>B</strong>) The predicted III table shows full  evidence values including average co-expression (Pearson correlation  coefficient), domain interaction score, GO similarity score, orthology score,  and PubMed co-citation. In the result table, the users can click the column  header to sort the table by column value, and multiple columns can be sorted  simultaneously by holding down the shift key and clicking a second, third or  even fourth column header. (<strong>C</strong>) The  result of module searching includes the network graph, complex enrichment,  pathway enrichment, and GO enrichment. If a network graph is more complex and  compact, users can click a full figure link for a larger high-resolution image.</div></td>
+                   <td>&nbsp;</td>
+                 </tr>
+                 <tr>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                 </tr>
+               </table>
+<p>III  search and isoform module search function in IIIDB. The searching function has  three parts: high-confidence interaction prediction search, low-confidence  interaction prediction search, and isoform module search. The IIIDB provides  auto-complete function in all search functions (Figure 2). Users can  input gene symbol or gene ID into the auto-complete field which is provide  quickly finding and selecting some match value. Furthermore, by entering more  characters, it will filter down the list to better matches. The auto-complete  function not only helps the users search efficiently but also makes a quick  filtering.</p>
+          <table width="760" border="0">
+                 <tr>
+                   <td width="72">&nbsp;</td>
+                   <td width="576"><img src="images/t3.jpg" alt="" width="576" height="241" /></td>
+                   <td width="98">&nbsp;</td>
+                 </tr>
+                 <tr>
+                   <td><p>&nbsp;</p>
+                   <p>&nbsp;</p></td>
+                   <td><div align="justify"><strong>Figure 2. Searching the interactions and modules in IIIDB. </strong>The searching function has three parts:  high-confidence interaction prediction search, low-confidence interaction  prediction search, and isoform module search. In this figure, we used the low-confidence  interaction prediction search to demonstrate the auto-complete function. Users  can input gene symbol or gene ID into the auto-completed field which provides  quickly finding and selecting some match value. Furthermore, by entering more  characters, it will filter down the list to better matches. In addition, since  we built a list of gene symbol and gene ID from the database, if users found  that the auto-completed field does not show any corresponding value prompt in  the input window, it means the search will not have any result. Thus, the auto-complete  function not only helps users search efficiently but also makes a quick  filtering. </div></td>
+                   <td>&nbsp;</td>
+                 </tr>
+                 <tr>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                   <td>&nbsp;</td>
+                 </tr>
+          </table>
+          <p>To obtain the isoform annotations in  human genome, we used the UCSC KnownGene database, which includes 66,803 human isoforms (KnownGenes)  based on the hg18 assembly. We have  assembled a collection of proteomic and genomic data sources for predicting III  (See Figure 3) as follows: <strong>(1) </strong><strong><em>RNA-seq data</em></strong><strong><em>:</em></strong> We collected 10 RNA-seq  datasets, each with sample size  10  (Supplementary Table 1). Pearson’s expression  correlations for all isoform pairs were derived from each dataset. We hypothesize that two  frequently co-expressed isoforms are more likely to interact than those that  are not. <strong>(2) <em>Orthology information</em>:</strong> We performed BLAT between all human  isoforms and proteins of other species to identify sequence homologs. We  suspect that the PPIs of other species may suggest interactions among homolog  human proteins. Given two protein sequences<em> a</em> and <em>a'</em>, we calculated global <em>homology  (a, a') = (length of the common subsequence) / (maximum length of a and a'). </em>If  two human isoform pair <em>a</em> and <em>b</em> have orthologus protein pair <em>a'</em> and <em>b', </em>which has a PPI in the other species in IntAct database, we  assign <em>orthology</em> <em>score = (homology(a, a') + homology(b, b'))/2 </em>to the isoform pair <em>a</em> and <em>b.<strong> </strong></em><strong>(3) <em>Domain-domain interaction  data</em>:</strong> if the domains of two isoforms have interactions in the DOMINE database, we assign the <em>domain score</em> for the two isoforms as follows: high-confidence prediction: 3, medium-confidence prediction: 2, and low-confidence prediction: 1. <strong><em>(4) Similarities of</em></strong> <strong><em>GO  annotations: </em></strong>Previous studies  showed that proteins with shared GO functions are more likely to interact. Here, for any two isoforms, we estimate their  functional similarity by the smallest shared biological process (SSBP) of their respective parent  genes, and then take 10/SSBP as GO similarity score. This is only an  approximation, since an isoform may not have all functions of its parent gene. </p>
+<table width="759" border="0">
+            <tr>
+              <td width="71">&nbsp;</td>
+              <td width="672"><img alt="" src="images/t1.jpg" /></td>
+              <td width="2">&nbsp;</td>
+            </tr>
+            <tr>
+              <td><p>&nbsp;</p>
+                <p>&nbsp;</p></td>
+              <td><div align="justify"><strong>Figure 3. Data integration framework by logistic regression in IIIDB.</strong> We have assembled a collection of proteomic and genomic data sources for  predicting III as follows: (1) RNA-seq data: We collected 10 RNA-seq datasets,  each with sample size ≥ 10. Pearson’s expression correlations for all isoform  pairs were derived from each dataset. (2) Orthology information: We performed  BLAT between all human isoforms and proteins of other species to identify  sequence homologs. (3) Domain-domain interaction data: if the domains of two  isoforms have interactions in the DOMINE database, we assign the domain score.  (4) Similarities of GO annotations: for any two isoforms, we estimate their  functional similarity by the smallest shared biological process (SSBP) of their  respective parent genes.</div></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+
+          
+		<br />
+      </div>
+        </div>
+        
+        <div id="left">
+
+            <div id="nav">
+            
+                <h3>Site Map</h3>
+
+                <div class="inner_box">
+  
+                    <ul id="mb73g0ebul_table" class="mb73g0ebul_menulist" style="width: 180px; height: 150px;">
+  <li class="spaced_li"><a href="index.html#index"><img id="mbi_mb73g0_1" src="menu_images/mb_home.gif" name="mbi_mb73g0_1" width="160" height="31" style="vertical-align: bottom;" border="0" alt="Home" title="" /></a></li>
+  <li class="spaced_li"><a href="Interact.html"><img id="mbi_mb73g0_2" src="menu_images/mb_interaction_search.gif" name="mbi_mb73g0_2" width="160" height="31" style="vertical-align: bottom;" border="0" alt="Interaction Search" title="" /></a></li>
+  <li class="spaced_li"><a href="Enrich.html"><img id="mbi_mb73g0_3" src="menu_images/mb_module_search.gif" name="mbi_mb73g0_3" width="160" height="31" style="vertical-align: bottom;" border="0" alt="Module Search" title="" /></a></li>
+  <li class="spaced_li"><a href="index.html#about"><img id="mbi_mb73g0_5" src="menu_images/mb_about_us.gif" name="mbi_mb73g0_5" width="160" height="31" style="vertical-align: bottom;" border="0" alt="About Us" title="" /></a></li>
+    <li class="spaced_li"><a href="index.html#tutorial"><img id="mbi_mb73g0_4" src="menu_images/mb_tutorial.gif" name="mbi_mb73g0_4" width="160" height="31" style="vertical-align: bottom;" border="0" alt="Tutorial" title="" /></a></li>
+
+  </ul>
+                    <p>&nbsp;</p>
+                    <p>&nbsp;</p>
+              </div>
+                
+                <link rel="stylesheet" href="menu_images/mbcsmb73g0.css" type="text/css" />
+
+
+
+<script type="text/javascript" src="menu_images/mbjsmb73g0.js"></script>
+                
+                <!-- i love clean source code -->
+                
+            </div>
+
+            <div class="left_box">
+            
+                <h3>News and Updates</h3>
+
+                <div class="inner_box">
+                    <p>
+                        <b>July 9, 2011:</b><br />
+                        New releases and related tools
+                        <br />
+                        <br />
+                        <a href="index.html">Read more...</a>
+                    </p>
+
+            
+                </div>
+            </div>
+            
+            
+            <div class="left_box">
+                            
+                <h3>Related Tools</h3>
+                
+                <div class="inner_box">
+    
+<!--                    <p>
+                      <object id="counters99" allowscriptaccess="always" type="application/x-shockwave-flash" data="http://static.99widgets.com/counters/swf/counters.swf?id=733237_2&ln=en" width="130" height="160" wmode="transparent">
+                      <param name="allowscriptaccess" value="always" /><param name="movie" value="http://static.99widgets.com/counters/swf/counters.swf?id=733237_2&ln=en" /><param name="wmode" value="transparent" />
+                      <embed src="http://static.99widgets.com/counters/swf/counters.swf?id=733237_2&ln=en" type="application/x-shockwave-flash" allowscriptaccess="always" wmode="transparent" width="130" height="160"></embed>
+                      <br>
+                      
+                      </object>
+                    </p>-->
+<p>
+  <a href="http://jigsaw.w3.org/css-validator/check/referer">
+    <img style="border:0;width:88px;height:31px"
+        src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
+        alt="Valid CSS!" />
+  </a>
+</p>
+                    
+                    <p>
+    <a href="http://validator.w3.org/check?uri=referer"><img
+      src="http://www.w3.org/Icons/valid-xhtml10" alt="Valid XHTML 1.0 Strict" height="31" width="88" /></a>
+  </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    
+    <div id="footer">
+        <p>
+        Copyright &copy; 2011 <a href="http://syslab.nchu.edu.tw/" target=_blank>Syslab</a>.</p>
+    </div>
+</div>
+<a style="display:scroll;position:fixed;bottom:0px;right:5px;" href="#" title="" onfocus="if(this.blur)this.blur()"><img alt='' border='0' align="right" onmouseover="this.src='http://4.bp.blogspot.com/-AKP9Gl_ets0/TmzrRBJPg_I/AAAAAAAADpY/M3KVvsDNJbA/s1600/Top.png'" src="http://1.bp.blogspot.com/-_gUa3K1wDNo/TmzrHROhBVI/AAAAAAAADpU/vOKm_7zL8DQ/s1600/Top_medium.png" onmouseout="this.src='http://1.bp.blogspot.com/-_gUa3K1wDNo/TmzrHROhBVI/AAAAAAAADpU/vOKm_7zL8DQ/s1600/Top_medium.png'" /></a><!--BACKtoTOP-START--><!--BACKtoTOP-STOP-->
+</body>
+</html>
